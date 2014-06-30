@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" ng-app="todo">
+<head>	
+	<title>Angular js </title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/common.css">
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js'></script>
+	<script src="js/libs/jquery.min.js"></script>
+	<script src="js/libs/jquery-ui.min.js"></script>
+	<script src="js/libs/bootstrap.min.js"></script>
+	<script src="js/libs/angular.min.js"></script>
+	<script src="js/app.js"></script>	
+</head>
+<body ng-controller="TodoCtrl">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	        <div class="container"> 
+		        <a class="navbar-brand" href="#"><font color="white"><h3>TASK MANAGER</h3> </font></a>
+		</div>
+	</div>
+	<div class="container" ng-controller="TodoCtrl" id="playground">
+		<center><h3>  You have <span class="emphasis"> {{remaining()}} of {{todos.length}}</span> Remaining Tasks too Complete</h3><hr><br></center>
+		<div class="row">
+			<div class="col-xs-4">
+				<div class="row" id="todoAdd">
+					<form class="form-inline" role="form"></form>
+					<div class="form-group">
+						<input class="todoField" id="newTodoField" type="text" ng-model="newTodo" placeholder="Add New Task" ng-enter>					<!--<input class="todoField" id="newTodoField" type="text" ng-model="newTodo" placeholder="Add New Task info" ng-enter>-->
+						<textarea class="todoField1" id="newTodoField1" ng-model="newTodoTask" placeholder="Add Additional Task info" ng-enter></textarea>
+						<button id="todoSubmit" class="btn btn-default" ng-click="addTodo()">Add</button>
+						<button id="todoclear" class="btn btn-default" ng-click="go();clearCompleted()">Clear</button>
+					</div>					
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="row">
+					<ul class="list-unstyled" id="scroll">
+						<li class="todoTask" ng-repeat="todo in todos">
+							<input class="todoCheckbox" ng-model="todo.status" type="checkbox">
+							<label class="todoCheckboxlabel" ></label>
+							<span class="todoName">{{todo.taskName}}</span>
+							<button class="btn btn-default" ng-click="open(todo)"><span class="glyphicon glyphicon-info-sign blue"></span></button>
+						</li>
+					</ul>
+					
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="row">
+					 <div ng-show="todo">
+						<div id="main">
+							<h2>{{ todo.taskName }}</h2>
+							<i>{{ todo.info}}</i>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		 <!--<div id="json"><code>{{ todos | json}}</code></div>-->
+	</div>
+</body>
+</html>
