@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<script src="js/jquery.js"></script>
+		<script src="3p/angular.js"></script>
+		<script src="3p/d3.js"></script>
+		<script src="js/fc_app.js"></script>
+		<script src="js/fc_data_provider.js"></script>
+		<script src="js/fc_charts.js"></script>
+		<script src="js/test.js"></script>
+		<script src="js/dummydataprovider.js"></script>
+		<script src="js/tableui.js"></script>
+		<style>
+			.chart div {
+				 width: 0;
+				 transition: all 1s ease-out;
+				 -moz-transition: all 1s ease-out;
+				 -webkit-transition: all 1s ease-out;
+			}
+
+			.chart div {
+				  font: 10px sans-serif;
+				 background-color: steelblue;
+				 text-align: right;
+				padding: 3px;
+				margin: 5px;
+				color: white;
+				box-shadow: 2px 2px 2px #666;
+			}
+		</style>
+	</head>
+<body bgcolor="#AAAAAA" ng-app="fc-charts">
+	
+	<fc-data-provider provider-name="DummyDataProvider" implementation="dummyDataProvider"> 
+	</fc-data-provider>
+	<div ng-controller="fcChartDemoController" id='mycontroller' style="width:auto;height:auto;position:absolute;left:150px;top:100px;">
+		
+		<div>
+			<fc-bar-chart id='fc-test-chart' text_mode="legend" chart_y_attr='val2' chart_key_attr='year' chart_colors='["#300204", "#FF6600","#4DAF4A","#377EB8","#555555"]' fc_data_provider='DummyDataProvider'>
+			</fc-bar-chart>
+			<!--<div id="tooltip" ></div>-->
+		</div>
+		
+	</div>
+</body>
+</html>
