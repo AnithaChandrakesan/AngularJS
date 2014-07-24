@@ -9,3 +9,6 @@ AngularJS
 	
 	* 	 Implemeted the streaming API, a ChartDataModel for bar graph
 		 using javascript to create Factory, provider and consumer for each callbacks.
+
+	*	A flexible force-directed graph layout implementation using Angular and  Javascript
+		to store nodes and multiple values to it.
